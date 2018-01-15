@@ -12,25 +12,6 @@
 npm install merapi-plugin-redis --save
 ```
 
-## Usage
-
-You can call redis client by using `client` function:
-```javascript
-import { IRedis } from "merapi-plugin-redis";
-
-export default class YourManager {
-    constructor(protected redis: IRedis) {
-        super();
-    }
-
-    getRedisClient() {
-        const redisClient = this.redis.client();
-        return redisClient;
-    }
-}
-```
-Then you can proceed to use ioredis from `redisClient`.
-
 ## Configuration
 
 ```json
@@ -73,12 +54,12 @@ The arguments passed to the redis configuration are different from one another, 
 Example of redis configuration.
 ```json
     {
-        type: "single",
-        prefix: "merapi",
-        name: "redisRepo",
-        host: "127.0.0.1",
-        port: 6380,
-        password: "mypassword"
+        "type": "single",
+        "prefix": "merapi",
+        "name": "redisRepo",
+        "host": "127.0.0.1",
+        "port": 6380,
+        "password": "mypassword"
     }
 ```
 More information about [redis configuration](https://github.com/luin/ioredis#connect-to-redis)
@@ -113,6 +94,25 @@ More information about [cluster configuration](https://github.com/luin/ioredis#c
     }
 ```
 More information about [sentinel configuration](https://github.com/luin/ioredis#sentinel)
+
+## Usage
+
+You can call redis client by using `client` function:
+```javascript
+import { IRedis } from "merapi-plugin-redis";
+
+export default class YourManager {
+    constructor(protected redisRepo: IRedis) {
+        super();
+    }
+
+    getRedisClient() {
+        const redisClient = this.redisRepo.client();
+        return redisClient;
+    }
+}
+```
+Then you can proceed to use ioredis from `redisClient`.
 
 # License
 
