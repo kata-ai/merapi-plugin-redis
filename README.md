@@ -29,7 +29,7 @@ npm install merapi-plugin-redis --save
         "port": "6379",
         "password": "mypassword",
         "ttl": "300",
-        "redisHosts": "[{'host': '127.0.0.1', 'port': 6379},{'host': '127.0.0.1', port: '16379'}]",
+        "redisHosts": "[{\"host\": \"127.0.0.1\", \"port\": 6379},{\"host\": \"127.0.0.1\", \"port\": \"16379\"}]",
         "sentinelName": "mymaster",
         "args": {}
     }
@@ -72,7 +72,7 @@ More information about [redis configuration](https://github.com/luin/ioredis#con
         "prefix": "merapi",
         "name": "redisRepo",
         "password": "mypassword",
-        "redisHosts": "[{'host': '127.0.0.1', 'port': 6379},{'host': '127.0.0.1', port: '16379'}]",
+        "redisHosts": "[{\"host\": \"127.0.0.1\", \"port\": 6379},{\"host\": \"127.0.0.1\", \"port\": 16379}]",
         "args": {
             "slotsRefreshTimeout": 2000
         }
