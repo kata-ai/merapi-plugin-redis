@@ -10,6 +10,10 @@
     "redis",
     "ioredis"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:rickyanders/merapi-plugin-redis.git"
+  },
   "author": "Ricky Anders <rickyanders93@gmail.com>",
   "license": "MIT",
   "description": "Merapi plugin for working with ioredis",
