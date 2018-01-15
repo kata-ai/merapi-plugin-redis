@@ -2,7 +2,7 @@
 
 ## Introduction
 
-[Merapi](https://github.com/kata-ai/merapi) plugin for working with [ioredis](https://github.com/luin/ioredis)
+[Merapi](https://github.com/kata-ai/merapi) plugin for working with [ioredis](https://github.com/luin/ioredis).
 
 # Quick Start
 
@@ -23,7 +23,7 @@ export default class YourManager {
         super();
     }
 
-    getRedisClient(message: string) {
+    getRedisClient() {
         const redisClient = this.redis.client();
         return redisClient;
     }
@@ -35,22 +35,22 @@ Then you can proceed to use ioredis from `redisClient`.
 
 ```json
 {
-    name: "merapi",
-    version: "0.1.0",
-    plugins: [
+    "name": "merapi",
+    "version": "0.1.0",
+    "plugins": [
         "redis"
     ],
-    redis: {
-        type: "single",
-        prefix: "merapi",
-        name: "redisRepo",
-        host: "127.0.0.1",
-        port: "6379",
-        password: "mypassword"
-        ttl: "300"
-        redisHosts: "[{host: 127.0.0.1, port: 6379},{host: 127.0.0.1, port: 16379}]",
-        sentinelName: "mymaster",
-        args: {}
+    "redis": {
+        "type": "single",
+        "prefix": "merapi",
+        "name": "redisRepo",
+        "host": "127.0.0.1",
+        "port": "6379",
+        "password": "mypassword",
+        "ttl": "300",
+        "redisHosts": "[{'host': '127.0.0.1', 'port': 6379},{'host': '127.0.0.1', port: '16379'}]",
+        "sentinelName": "mymaster",
+        "args": {}
     }
 }
 ```
@@ -87,13 +87,13 @@ More information about [redis configuration](https://github.com/luin/ioredis#con
 
 ```json
     {
-        type: "cluster",
-        prefix: "merapi",
-        name: "redisRepo",
-        password: "mypassword"
-        redisHosts: "[{host: 127.0.0.1, port: 6379},{host: 127.0.0.1, port: 16379}]"
-        args: {
-            slotsRefreshTimeout: 2000
+        "type": "cluster",
+        "prefix": "merapi",
+        "name": "redisRepo",
+        "password": "mypassword",
+        "redisHosts": "[{'host': '127.0.0.1', 'port': 6379},{'host': '127.0.0.1', port: '16379'}]",
+        "args": {
+            "slotsRefreshTimeout": 2000
         }
     }
 ```
@@ -103,13 +103,13 @@ More information about [cluster configuration](https://github.com/luin/ioredis#c
 
 ```json
     {
-        type: "sentinel",
-        prefix: "merapi",
-        name: "redisRepo",
-        host: "localhost",
-        port: "26379"
-        sentinelName: "mymaster",
-        password: "mypassword"
+        "type": "sentinel",
+        "prefix": "merapi",
+        "name": "redisRepo",
+        "host": "localhost",
+        "port": "26379",
+        "sentinelName": "mymaster",
+        "password": "mypassword"
     }
 ```
 More information about [sentinel configuration](https://github.com/luin/ioredis#sentinel)
