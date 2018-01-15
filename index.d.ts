@@ -20,7 +20,7 @@ declare module "merapi-plugin-redis" {
 
         del(key: string): Promise<void>;
         delete(key: string): Promise<void>;
-        exists(...keys: string[]): any;
+        exists(...keys: string[]): Promise<number>;
 
         llen(key: string): Promise<number>;
         incr(key: string): Promise<number>;
