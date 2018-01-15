@@ -1,4 +1,7 @@
 // Type definitions for Merapi Plugin Redis
+// Project: https://github.com/rickyanders/merapi-plugin-redis
+// Definitions by: Ricky Anders <https://github.com/rickyanders>
+// TypeScript Version: 2.3
 
 import { Redis } from "ioredis";
 
@@ -38,5 +41,6 @@ declare module "merapi-plugin-redis" {
         subscribe(...channels: any[]): any;
         unsubscribe(...channels: any[]): any;
         onEvent(key: string, fn: any): any;
+        keys(pattern: string): string[];
     }
 }
