@@ -1,3 +1,7 @@
+## 0.1.3 (2018/01/16)
+
+* Fix typo in redis single args
+
 ## 0.1.2 (2018/01/16)
 
 * Fix args configuration for redis cluster
