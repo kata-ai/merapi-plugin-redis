@@ -1,5 +1,5 @@
 // Type definitions for Merapi Plugin Redis
-// Project: https://github.com/rickyanders/merapi-plugin-redis
+// Project: https://github.com/kata-ai/merapi-plugin-redis
 // Definitions by: Ricky Anders <https://github.com/rickyanders>
 // TypeScript Version: 2.3
 
@@ -11,9 +11,14 @@ declare module "merapi-plugin-redis" {
 
         set(key: string, value: any, ...args: any[]): Promise<string>;
         get(key: string): Promise<string>;
+        setnx(key: string, value: string): Promise<number>;
 
         hset(key: string, field: string, value: any): Promise<number>;
         hget(key: string, field: string): Promise<string>;
+        hgetall(key: string): Promise<object>;
+        hincrby(key: string, field: string, value: number): Promise<number>;
+        hincr(key: string, field: string): Promise<number>;
+        hmset(key: string, value: object): Promise<void>;
 
         lpush(key: string, ...values: any[]): Promise<void>;
         rpush(key: string, ...values: any[]): Promise<void>;
@@ -36,6 +41,8 @@ declare module "merapi-plugin-redis" {
 
         setTtl(key: string, value: any, ttl?: number): Promise<string>;
         expire(key: string, ttl?: number): Promise<number>;
+
+        multi(commands: any[][]): any;
 
         publish(channel: string, message: string): Promise<number>;
         subscribe(...channels: any[]): any;
