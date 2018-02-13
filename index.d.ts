@@ -26,8 +26,8 @@ declare module "merapi-plugin-redis" {
         lpop(key: string): Promise<string>;
         rpop(key: string): Promise<string>;
 
-        del(key: string): Promise<void>;
-        delete(key: string): Promise<void>;
+        del(...keys: string[]): Promise<void>;
+        delete(...keys: string[]): Promise<void>;
         exists(...keys: string[]): Promise<number>;
 
         llen(key: string): Promise<number>;
