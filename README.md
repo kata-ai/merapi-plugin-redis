@@ -21,10 +21,19 @@ npm install merapi-plugin-redis --save
     "plugins": [
         "redis"
     ],
-    "redis": {
+    "components": {
+        "redisPub": {
+            "type": "redis",
+            "config": "redisConfig"
+        },
+        "redisSub": {
+            "type": "redis",
+            "config": "redisConfig"
+        }
+    },
+    "redisConfig": {
         "type": "single",
         "prefix": "merapi",
-        "name": "redisRepo",
         "host": "127.0.0.1",
         "port": "6379",
         "password": "mypassword",
@@ -40,7 +49,6 @@ The arguments passed to the redis configuration are different from one another, 
 
 * `type` identifies redis type (`single`, `cluster`, or `sentinel`)
 * `prefix` prefix for redis key (key will be `{prefix}:yourkey`)
-* `name` act as redis class name. Default to `redisRepo`
 * `host` redis host
 * `port` redis port
 * `password` redis auth
@@ -56,7 +64,6 @@ Example of redis configuration.
     {
         "type": "single",
         "prefix": "merapi",
-        "name": "redisRepo",
         "host": "127.0.0.1",
         "port": 6380,
         "password": "mypassword"
@@ -70,7 +77,6 @@ More information about [redis configuration](https://github.com/luin/ioredis#con
     {
         "type": "cluster",
         "prefix": "merapi",
-        "name": "redisRepo",
         "password": "mypassword",
         "redisHosts": "[{\"host\": \"127.0.0.1\", \"port\": 6379},{\"host\": \"127.0.0.1\", \"port\": 16379}]",
         "args": {
@@ -86,7 +92,6 @@ More information about [cluster configuration](https://github.com/luin/ioredis#c
     {
         "type": "sentinel",
         "prefix": "merapi",
-        "name": "redisRepo",
         "host": "localhost",
         "port": "26379",
         "sentinelName": "mymaster",
