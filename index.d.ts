@@ -16,6 +16,7 @@ declare module "merapi-plugin-redis" {
         hset(key: string, field: string, value: any): Promise<number>;
         hget(key: string, field: string): Promise<string>;
         hgetall(key: string): Promise<object>;
+        hdel(key: string, ...fields: string[]): Promise<number>;
         hincrby(key: string, field: string, value: number): Promise<number>;
         hincr(key: string, field: string): Promise<number>;
         hmset(key: string, value: object): Promise<void>;
